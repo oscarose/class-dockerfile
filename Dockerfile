@@ -7,7 +7,7 @@ RUN     yum -y update && \
 
 USER root
 
-ARG HTTP_PORT=443
+ARG HTTP_PORT=8080
 ARG INSTALL_DIR=/opt
 ARG JAVA_NAME=jdk1.8.0_231
 ENV JAVA_HOME /opt/jdk1.8.0_231
