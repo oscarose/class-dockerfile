@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker'
+        label 'Built-In Node'
     }
     stages {
         stage('clone git repo') {
