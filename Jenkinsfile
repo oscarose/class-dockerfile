@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Built-In'
+        label 'Jenkins'
     }
     stages {
         stage('clone git repo') {
