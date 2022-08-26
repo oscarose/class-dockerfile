@@ -4,9 +4,11 @@ pipeline {
     }
     stages {
         stage('clone git repo') {
-            git branch: 'master',
-                credentialsId: 'git-cred',
-                    url: 'https://github.com/oscarose/class-dockerfile.git'
+            steps {
+                git branch: 'master',
+                    credentialsId: 'git-cred',
+                        url: 'https://github.com/oscarose/class-dockerfile.git'
+            }            
         }
     }
 }
