@@ -2,6 +2,12 @@ pipeline {
     agent {
         label 'Jenkins'
     }
+    parameters {
+        choice(name:'aws_region', choices: ['us-east-1', 'us-west-2'], description: 'aws region to deploy',)
+        string(name: 'stack_name', defaultValue: '', description: 'name of cft stack',)
+        choice(name:'state', choices: ['present', 'absent'], description: 'cft build or teardown condition',)
+        choice(name:'environment', choices: ['QA', 'DEV'], description: 'cft deploy environment',)
+    }
     stages {
         stage('clone git repo') {
             steps {
@@ -12,25 +18,12 @@ pipeline {
         }
         stage('aws services') {
             steps {
-                withAWS(credentials: 'aws-cred', region: 'us-east-1') {
+                withAWS(credentials: 'aws-cred', region: '${aws_region}') {
                     sh """
                     aws s3 ls
                     """
                 }
             }
         }
-        //stage('deploy cft') {
-        //    steps {
-        //        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
-        //            script {
-        //                sh '''
-        //                aws ls
-        //                aws cloudformation ls
-                        //aws s3 ls
-        //                '''
-        //            }
-        //        }
-        //    }
-        //}
     }
 }
