@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        //stage('deploy cft') {
+        /*stage('deploy cft') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
                     script {
@@ -31,6 +31,6 @@ pipeline {
                     }
                 }
             }
-        //}
+        */}
     }
 }
