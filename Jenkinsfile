@@ -19,18 +19,18 @@ pipeline {
                 }
             }
         }
-        /*stage('deploy cft') {
-            steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
-                    script {
-                        sh '''
-                        aws ls
-                        aws cloudformation ls
+        //stage('deploy cft') {
+        //    steps {
+        //        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
+        //            script {
+        //                sh '''
+        //                aws ls
+        //                aws cloudformation ls
                         //aws s3 ls
-                        '''
-                    }
-                }
-            }
-        */}
+        //                '''
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
