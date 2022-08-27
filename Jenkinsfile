@@ -18,7 +18,8 @@ pipeline {
         }
         stage('aws services') {
             steps {
-                withAWS(credentials: 'aws-cred', region: '${aws_region}') {
+                withAWS(credentials: 'aws-cred') {
+                //withAWS(credentials: 'aws-cred', region: '${aws_region}') {
                     sh """
                     aws s3 ls
                     """
