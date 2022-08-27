@@ -10,7 +10,16 @@ pipeline {
                         url: 'https://github.com/oscarose/class-dockerfile.git'
             }            
         }
-        stage('deploy cft') {
+        stage('aws services') {
+            steps {
+                withAWS(credentials: 'aws-cred', region: 'us-east-1') {
+                    sh """
+                    aws s3 ls
+                    """
+                }
+            }
+        }
+        //stage('deploy cft') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
                     script {
@@ -22,6 +31,6 @@ pipeline {
                     }
                 }
             }
-        }
+        //}
     }
 }
