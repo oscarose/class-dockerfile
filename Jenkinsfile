@@ -17,7 +17,7 @@ pipeline {
                         sh '''
                         aws ls
                         aws cloudformation ls
-                        aws s3 ls
+                        //aws s3 ls
                         '''
                     }
                 }
