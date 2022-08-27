@@ -15,6 +15,8 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-cred', accessKeyVariable: 'access_key_id', secretKeyVariable: 'secret_access_key']]) {
                     script {
                         sh '''
+                        aws ls
+                        aws cloudformation ls
                         aws s3 ls
                         '''
                     }
