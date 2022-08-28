@@ -23,7 +23,6 @@ pipeline {
                     sh """
                     aws s3 ls
                     python3 --version
-                    //clusterid=${python3 ${WORKSPACE}/clusterid.py | grep j} | python3 ${WORKSPACE}/test.py $clusterid
                     """
                 }
             }
