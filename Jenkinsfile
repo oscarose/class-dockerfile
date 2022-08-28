@@ -36,7 +36,7 @@ pipeline {
                     //aws s3 ls
                     //python3 --version
                     //python3 ${WORKSPACE}/clusterid.py
-                    """
+                    //"""
                 }
             }
         }
