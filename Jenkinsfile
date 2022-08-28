@@ -22,6 +22,7 @@ pipeline {
                 //withAWS(credentials: 'aws-cred', region: '${aws_region}') {
                     sh """
                     aws s3 ls
+                    clusterid=$(python3 $WORKSPACE/clusterid.py | grep j-*) | python3 $WORKSPACE/test.py $clusterid
                     """
                 }
             }
