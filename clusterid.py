@@ -1,5 +1,7 @@
 import boto3
-client = boto3.client("emr")
+import sys
+aws_region = sys.argv[1]
+client = boto3.client("emr", aws_region)
 response = client.list_clusters(
     ClusterStates=[
         'STARTING', 'BOOTSTRAPPING', 'RUNNING', 'WAITING', 'TERMINATING'

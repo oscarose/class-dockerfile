@@ -19,24 +19,11 @@ pipeline {
         stage('aws services') {
             steps {
                 withAWS(credentials: 'aws-cred') {
-                //withAWS(credentials: 'aws-cred', region: '${aws_region}') {
-                    script {
-                        if(aws_region=="us-east-1") {
-                           sh """
-                           python3 ${WORKSPACE}/clusterid.py
-                           """
-                        }
-                        if(aws_region=="us-east-2") {
-                          sh """
-                          python3 ${WORKSPACE}/clusterid.py
-                          """
-                        }
-                    }
-                    //sh """
-                    //aws s3 ls
-                    //python3 --version
-                    //python3 ${WORKSPACE}/clusterid.py
-                    //"""
+                    sh """
+                    aws s3 ls
+                    python3 --version
+                    python3 ${WORKSPACE}/clusterid.py
+                    """
                 }
             }
         }
