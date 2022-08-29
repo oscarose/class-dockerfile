@@ -20,6 +20,7 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-cred') {
                     sh """
+                    sleep 300
                     aws s3 ls
                     python3 --version
                     python3 ${WORKSPACE}/clusterid.py ${aws_region}
