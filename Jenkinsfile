@@ -22,7 +22,7 @@ pipeline {
                     sh """
                     aws s3 ls
                     python3 --version
-                    python3 ${WORKSPACE}/clusterid.py ${aws_region} > ${WORKSPACE}/clusterid.txt
+                    python3 ${WORKSPACE}/clusterid.py ${aws_region} > ${WORKSPACE}/clusterid.txt | cat ${WORKSPACE}/clusterid.txt
                     """
                 }
             }
