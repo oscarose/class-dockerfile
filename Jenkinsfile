@@ -19,11 +19,11 @@ pipeline {
         stage('aws services') {
             steps {
                 withAWS(credentials: 'aws-cred') {
-                    sh """#!/bin/bash
+                    sh '''#!/bin/bash
                     aws s3 ls
                     python3 --version
-                    python3 ${WORKSPACE}/clusterid.py ${aws_region} | grep j
-                    """
+                    clusterid=$(python3 ${WORKSPACE}/clusterid.py | grep j-*) | python3 ${WORKSPACE}/test.py $clusterid
+                    '''
                 }
             }
         }
