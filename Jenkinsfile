@@ -24,7 +24,7 @@ pipeline {
                     python3 --version
                     python3 ${WORKSPACE}/clusterid.py ${aws_region} > ${WORKSPACE}/clusterid.txt
                     export clusterid="cat ${WORKSPACE}/clusterid.txt"
-                    echo $clusterid
+                    echo "$clusterid"
                     """
                 }
             }
