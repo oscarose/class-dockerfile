@@ -6,12 +6,13 @@ import sys
 #n = sys.argv[1]
 #clusterid = sys.argv[1]
 clusterid = sys.argv[1]
+aws_region = sys.argv[2]
 
 boto_client_emr = boto3.client("emr")
 #cluster_id = "j-2HKXRXB0RI02U"
 cluster_id = clusterid
 
-def get_emr_master_pub_ip(boto_client_emr, cluster_id):
+def get_emr_master_pub_ip(boto_client_emr, cluster_id, aws_region):
     emr_list_instance_rep = boto_client_emr.list_instances(
         ClusterId=cluster_id,
         InstanceGroupTypes=[

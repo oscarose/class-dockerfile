@@ -24,7 +24,7 @@ pipeline {
                     python3 --version
                     clusterid=$(python3 ${WORKSPACE}/clusterid.py ${aws_region} | grep j) 
                     echo $clusterid
-                    python3 ${WORKSPACE}/demoip.py $clusterid
+                    python3 ${WORKSPACE}/demoip.py $clusterid ${aws_region}
                     '''
                 }
             }
