@@ -19,12 +19,12 @@ pipeline {
         stage('aws services') {
             steps {
                 withAWS(credentials: 'aws-cred') {
-                    sh """
+                    sh """#!/bin/bash
                     aws s3 ls
                     python3 --version
                     python3 ${WORKSPACE}/clusterid.py ${aws_region} > ${WORKSPACE}/clusterid.txt
                     export clusterid="cat ${WORKSPACE}/clusterid.txt"
-                    echo "$clusterid"
+                    echo $clusterid
                     """
                 }
             }
