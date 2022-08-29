@@ -20,11 +20,9 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-cred') {
                     sh """
-                    //sleep 300
                     aws s3 ls
                     python3 --version
-                    python3 ${WORKSPACE}/clusterid.py ${aws_region} > $WORKSPACE/clusterid.txt
-                    //clusterid="$(python3 ${WORKSPACE}/clusterid.py us-east-1 | grep j)" | python3 ${WORKSPACE}/test.py $clusterid
+                    python3 ${WORKSPACE}/clusterid.py ${aws_region} > ${WORKSPACE}/clusterid.txt
                     """
                 }
             }
