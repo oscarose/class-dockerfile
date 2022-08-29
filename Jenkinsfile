@@ -22,7 +22,7 @@ pipeline {
                     sh '''#!/bin/bash
                     aws s3 ls
                     python3 --version
-                    clusterid=$(python3 ${WORKSPACE}/clusterid.py | grep j-*) | python3 ${WORKSPACE}/test.py $clusterid
+                    clusterid=$(python3 ${WORKSPACE}/clusterid.py ${aws_region} | grep j-*) | python3 ${WORKSPACE}/test.py $clusterid
                     '''
                 }
             }
