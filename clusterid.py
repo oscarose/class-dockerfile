@@ -8,7 +8,7 @@ response = client.list_clusters(
     ]
 )
 for cluster in response['Clusters']:
-    print(cluster['PROD'])
+    print(cluster['Name'])
 #    print(cluster['Name'])
     print(cluster['Id'])
 
